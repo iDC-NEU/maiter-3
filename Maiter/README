@@ -9,6 +9,12 @@ the optional libraries can be install via: * sudo apt-get install libgoogle-perf
 2. Building
 To build, simply run 'make' from the top level Maiter directory.
 
+http://fmn.rrimg.com/fmn058/20130902/2120/original_IFoY_71a000007587125d.jpg
+
+A successful building will show below in the end:
+
+http://fmn.rrimg.com/fmn064/20130902/2120/original_qBnZ_09bf00007e491190.jpg
+
 A successful build should generate an executable example case named example-dsm which is PageRank in default situation in the bin/release/examples/ of Maiter project.
 
 3. Running
@@ -18,6 +24,9 @@ In the .sh file, there are many parameters which have specific meanings: * ALGOR
 
 Finally, you must put the example-dsm, .sh file, input (note that the name of input file in input directory must be ‘part0’ ) and result directory in the same directory. Then entering the command ‘sh .sh’, you will get output in the result directory.
 
+http://fmn.rrimg.com/fmn062/20130902/2120/original_9Z55_6bcb00007e2d1191.jpg
+
+Figure 1
 
 Running Maiter on a cluster
 If you want to run a big task on Maiter, single machine cluster will be not enough. But, setting up Maiter on single machine with easy, will make you bring you a lot of convenience, because there are many similarities between single machine cluster and multiple machines cluster.
@@ -71,3 +80,4 @@ When ruing your won apps, you might encounter the problem like below:
 http://fmn.rrimg.com/fmn060/20131006/2010/original_8XCu_60d000008d42118f.jpg
 
 “No entry for requested key 2_4” means that there isn’t a entry whose key domain is 2_4 in statetable in memory. Maiter initializes the statetable when your job begin. Every row in your input data corresponds to a entry which is labeled by unique key in statetable. when the job is running, for example, key 3_2 might sends massages to key 2_4. If the key 2_4 has no a entry in statetable, Maiter will cannot find the target to send its massages, then Maiter will report the error and exit. To settle the problem, you must make sure the part of your input data that will be keys of entries includes all the keys appearing in the process of your job. Then run your job again.
+
