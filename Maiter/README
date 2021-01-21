@@ -1,12 +1,12 @@
 Running Maiter on single machine
 If you don’t want to run a big task, you just intend to run a simple example like PageRank to have a try or learn how to use Maiter. You don’t need to set up Maiter on big cluster. Setting up Maiter on single machine will save a lot of time. According to the following steps, you can run Maiter on single machine easily.
 
-##1. prerequisites
+## 1. prerequisites
 Maiter is C++ framework, therefore to build and use Maiter, you will need a minimum of the following: * CMake (> 2.6) * OpenMPI * Python (2.) * gcc/g++ (> 4) * protocol buffers If available, the following libraries will be used: * Python development headers; SWIG * TCMalloc * google-perftools In addition to these, Maiter comes with several support libraries which are compiled as part of the build process; these are: * google-flags * google-logging On debian/ubuntu, the required libraries can be acquired by running: * sudo apt-get install build-essential cmake g++ libboost-dev libboost-python-dev libboost-thread-dev liblzo2-dev libnuma-dev libopenmpi-dev libprotobuf-dev libcr-dev libibverbs-dev openmpi-bin protobuf-compiler liblapack-dev libboost-system-dev
 
 the optional libraries can be install via: * sudo apt-get install libgoogle-perftools-dev python-dev swig
 
-##2. Building
+## 2. Building
 To build, simply run 'make' from the top level Maiter directory.
 
 ![1](https://user-images.githubusercontent.com/11622204/105324385-51640280-5c06-11eb-96a5-012e87d72948.jpg)
@@ -17,7 +17,7 @@ A successful building will show below in the end:
 
 A successful build should generate an executable example case named example-dsm which is PageRank in default situation in the bin/release/examples/ of Maiter project.
 
-##3. Running
+## 3. Running
 Firstly, to execute the default example (it is PageRank in default situation) generated after building, you will need to modify conf/mpi-cluster to point to your machine Maiter will be executed on - for example, the file might look like: localhost slots=1 localhost slots=1 The first line is master and the second line is worker in your single-machine cluster. Master and worker are your machine so that your simple cluster can run on single machine. The slots parameter is that how many Maiter tasks run at the same time on one worker. Setting slots parameter has some tricks. The best value of slots is the number of cores in your CPU. Secondly, you have to write your own .sh file to set parameters for default example. For example, if the example is PageRank, your .sh file might look like: ALGORITHM=Pagerank WORKERS=2 GRAPH=input/ RESULT=result/ NODES=1000 SNAPSHOT=10 TERMTHRESH=0.00001 BUFMSG=1 PORTION=1 ./exsmple-dsm --runner=$ALGORITHM --workers=$WORKERS --graph_dir=$GRAPH --result_dir=$RESULT --num_nodes=$NODES --snapshot_interval=$SNAPSHOT --portion=$PORTION --termcheck_threshold=$TERMTHRESH --bufmsg=$BUFMSG --v=1 > log
 
 In the .sh file, there are many parameters which have specific meanings: * ALGORITHM is the name of algorithm and must be exactly the same with the name you set when implementing the algorithm. * WORKERS is the sum of the values of slots in the conf/mpi-cluster file. * GRAPH is the relative path of the input file like graph. * RESULT is the relative path of results of the algorithm you run. * NODES is the number of the statetable previsioned in memory before run a task and depends on the number of nodes in the input graph. For example, supposed that there are 1000 nodes in your input graph, the NODES must be bigger than 1000. Therefore, it would be 1500. * SNAPSHOT is the time interval (in seconds) between two snapshots. * TERMTHRESH is a float number and can be any values which depend on the implementation of terminate API of Maiter. * BUFMSG is the size of buffer which caches information to be sent by workers. * PORTION determines that how many statetables are preferentially updated. It ranges from 0 to 1. For example, if the PORTION is 0.2, Maiter will preferentially update 20 percent of statetables which have higher priority.
@@ -61,7 +61,7 @@ Figure 4
 
 Maiter can finish the third step without your interference. Therefore, you only need to finish the former two steps with the API provided by Maiter. Take PageRank for example. The C++ code of PageRank in Maiter programming model is shown below:
 
-##Implementation of PageRank
+## Implementation of PageRank
 ```
 
 include "client/client.h"
@@ -119,7 +119,7 @@ add_custom_target(example_proto DEPENDS ${EXAMPLE_PB_HDR}) add_library(example P
 we need to resolve static initializers, so glob all the symbols together with -whole-archive
 target_link_libraries(example-dsm -Wl,-whole-archive common worker kernel master example -Wl,-no-whole-archive) target_link_libraries(example-dsm gflags glog webgraph) target_link_libraries(example-dsm ${EXAMPLE_LIBS}) ``` Finally, run 'make' from the top level Maiter directory. The example-dsm in bin/release/examples/ directory is the executable PageRank. Then posting it to all the workers in your cluster and running your ,sh file after input file is ready, you will get results quickly.
 
-##Some common problems
+## Some common problems
 No entry for requested key
 When ruing your won apps, you might encounter the problem like below:
 
