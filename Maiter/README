@@ -40,7 +40,7 @@ build should generate a bin/{debug,release}/examples/example-dsm binary.
 -- RUNNING
 
 To execute a maiter program, you will need to modify conf/mpi-cluster
-to point to the set of machines Piccolo will be executed on - for example, a file
+to point to the set of machines maiter will be executed on - for example, a file
 might look like:
 
 localhost slots=1
