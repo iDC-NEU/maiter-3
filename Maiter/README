@@ -10,6 +10,7 @@ the optional libraries can be install via: * sudo apt-get install libgoogle-perf
 To build, simply run 'make' from the top level Maiter directory.
 
 ![1](https://fmn.rrimg.com/fmn058/20130902/2120/original_IFoY_71a000007587125d.jpg)
+
 ![alt text](http://fmn.rrimg.com/fmn058/20130902/2120/original_IFoY_71a000007587125d.jpg)
 
 A successful building will show below in the end:
