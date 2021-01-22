@@ -15,15 +15,19 @@ How is Maiter?
 The experimental results performed on 100-node EC2 cloud show
 
 2x-10x faster than synchronous implementation, 60x faster than Hadoop, for Pagerank benchmark.
-http://fmn.rrimg.com/fmn063/20140618/1105/original_k2gL_7cfa0000026f125f.jpg
+
+![http://fmn.rrimg.com/fmn063/20140618/1105/original_k2gL_7cfa0000026f125f.jpg](Maiter/img/original_k2gL_7cfa0000026f125f.jpg)
+
+
 
 high-utilized workers
 near-optimal scaling performance (scaling of PageRank)
-http://fmn.rrfmn.com/fmn061/20140618/1110/original_OHrS_7baa000002b3125f.jpg
+
+![http://fmn.rrfmn.com/fmn061/20140618/1110/original_OHrS_7baa000002b3125f.jpg](Maiter/img/original_OHrS_7baa000002b3125f.jpg)
 
 The software stack of Maiter
 
-http://fmn.rrfmn.com/fmn060/20140618/1600/original_Zhgs_62e7000009ea1191.jpg
+![http://fmn.rrfmn.com/fmn060/20140618/1600/original_Zhgs_62e7000009ea1191.jpg](Maiter/img/original_Zhgs_62e7000009ea1191.jpg)
 
 Download http://faculty.neu.edu.cn/cc/zhangyf/download/maiter-0.1-ubuntu.tar.gz'>maiter-0.1-utunbu.tar.gz.
 For more usage details, please refer to the wiki page Guidance.
@@ -39,7 +43,8 @@ Incremental Computation
 Load balance processing
 fault tolerant processing
 the futrue software of Maiter
-http://fmn.rrimg.com/fmn066/20140618/1615/original_pTMj_128400000a671190.gif
+
+![http://fmn.rrimg.com/fmn066/20140618/1615/original_pTMj_128400000a671190.gif](Maiter/img/original_pTMj_128400000a671190.gif)
 
 Note
 
