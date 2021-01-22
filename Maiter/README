@@ -1,3 +1,5 @@
+A more detailed installation guide can be found at https://github.com/Sanzona/Maiter/blob/master/README.md.
+
 Running Maiter on single machine
 If you don’t want to run a big task, you just intend to run a simple example like PageRank to have a try or learn how to use Maiter. You don’t need to set up Maiter on big cluster. Setting up Maiter on single machine will save a lot of time. According to the following steps, you can run Maiter on single machine easily.
 
